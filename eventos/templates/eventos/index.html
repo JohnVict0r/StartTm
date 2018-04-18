@@ -1,0 +1,60 @@
+{% extends "eventos/base.html" %}
+
+{% block body %}
+
+<div class="panel panel-default">
+        <div class="card card-table">
+            <div class="card-body table-responsive">
+
+
+
+
+
+                <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th style="width:37%;">Eventos</th>
+                    <th style="width:36%;"></th>
+                    <th></th>
+                    <th class="actions"></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% if eventos %}
+
+                    {% for evento in eventos %}
+
+
+                        <tr>
+                            <!--<td class="user-avatar"> <img src="assets/img/avatar6.png" alt="Avatar">Penelope Thornton</td>-->
+                            <td> {{ evento.nome}}</td>
+                            <td>{{evento.local}}</td>
+                            <td>{{evento.ano}}</td>
+                            <td><a href="{% url 'exibir_evento' evento.id%}">visualizar</a></td>
+                            <!--<td>Aug 16, 2016</td>
+                            <td class="actions"><a href="#" class="icon"><i class="mdi mdi-github-alt"></i></a></td>-->
+                        </tr>
+
+                    {% endfor %}
+
+                {% else %}
+                    <tr>
+                        <td colspan="4"> Nenhum evento divuldago!</td>
+                    </tr>
+                {% endif %}
+
+
+                </tbody>
+              </table>
+            </div>
+        </div>
+</div>
+
+
+
+{% block teste %}
+{% endblock %}
+
+
+{% endblock %}
