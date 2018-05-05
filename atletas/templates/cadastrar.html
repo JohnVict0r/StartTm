@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function formatar(mascara, documento){
+    var i = documento.value.length;
+    var saida = mascara.substring(0,1);
+    var texto = mascara.substring(i)
+
+    var tecla=(window.event)?event.keyCode:e.which;
+    if((tecla>47 && tecla<58)){
+
+        if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+        }
+
+    }
+    else{
+        if (tecla==8 || tecla==0){
+
+         if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+         }
+     }
+    else
+        return false;
+    }
+}
+</script>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card card-default">
+                <div class="card-header">
+                    <center>Cadastrar Atleta</center>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="card-body">
+                        <form method="POST" action="">
+
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+
+                                                <label for="name" class=" col-form-label">Nome</label>
+                                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+
+                                            <div class="form-group">
+                                                <label for="sobrenome" class=" col-form-label">Sobrenome</label>
+                                                <input id="sobrenome" type="text" class="form-control{{ $errors->has('sobrenome') ? ' is-invalid' : '' }}" name="sobrenome" value="{{ old('sobrenome') }}" required autofocus>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6 col-xs-6 col-sm-6">
+                                    <div class="form-group">
+
+                                        <label for="name" class=" col-form-label">Sexo</label>
+                                        <select class="form-control">
+                                          <option value="m">Masculino</option>
+                                          <option value="f">Feminino</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-6 col-sm-6">
+
+                                    <div class="form-group">
+                                        <label for="dataNascimento" class=" col-form-label">Data de Nascimento</label>
+                                        <input id="dataNascimento" type="date" name="dataNascimento" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+
+                                                <label for="cpf" class=" col-form-label">CPF</label>                                    <input type="text" name="cpf" class="form-control" maxlength="14" OnKeyPress="return formatar('###.###.###-##', this);" placeholder="999.999.999-99" required>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+
+                                            <div class="form-group">
+                                                <label for="rg" class=" col-form-label">RG</label>
+                                                <input type="text" name="tel" class="form-control" maxlength="12" OnKeyPress="return formatar('##.###.###-#', this)" placeholder="99.999.999-9">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+
+                                                <label for="tel" class=" col-form-label">Telefone</label>
+                                                <input type="text" name="tel" class="form-control" maxlength="12" OnKeyPress="return formatar('## ####-####', this);" placeholder="(99)9999-9999">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+
+                                                <label for="cel" class=" col-form-label">Celular</label>
+                                                <input type="text" name="cel" class="form-control" maxlength="14" OnKeyPress="return formatar('## # ####-####', this);" placeholder="(99)9 9999-9999">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name" class=" col-form-label">UF</label>
+                                                    <select class="form-control">
+                                                      <option value="volvo">RN</option>
+                                                      <option value="saab">PE</option>
+                                                      <option value="saab">CE</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-xs-6 col-sm-6">
+                                            <div class="form-group">
+                                                <label for="name" class=" col-form-label">Cidade</label>
+                                                    <select class="form-control">
+                                                      <option value="volvo">Natal</option>
+                                                      <option value="saab">João Pessoa</option>
+                                                      <option value="saab">Fortaleza</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+
+                                <div class="col-md-6 col-xs-6 col-sm-6 ">
+                                    <button type="submit" class="btn btn-primary">
+                                        Cadastrar
+                                    </button>
+                                    <button type="reset" class="btn btn-primary">
+                                        Limpar
+                                    </button>
+                                </div>
+
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
