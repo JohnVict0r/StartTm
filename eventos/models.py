@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 
-from atleta.models import atleta
+from atletas.models import Atleta
 from perfis.models import Perfil
 from categorias.models import  Categoria
 
